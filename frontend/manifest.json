@@ -1,0 +1,10 @@
+{
+    "name": "BuildWise AI",
+    "short_name": "BuildWise",
+    "description": "AI-powered project blueprint generator for students",
+    "start_url": "./index.html",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#6c4df6",
+    "icons": []
+}

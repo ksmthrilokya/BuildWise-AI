@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>BuildWise AI</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#6c4df6">
+<meta name="mobile-web-app-capable" content="yes">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">
+            Build<span>Wise</span> AI
+        </div>
+
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#how-it-works">How It Works</a>
+            <a href="#about">About</a>
+        </div>
+    </nav>
+
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <div class="badge">
+                ✨ AI-Powered Project Planner
+            </div>
+
+            <h1>
+                Turn Your <span>Idea</span><br>
+                Into a Build Plan.
+            </h1>
+
+            <p>
+                Have a project idea but don't know where to start?
+                BuildWise AI transforms your idea into a clear,
+                structured development roadmap.
+            </p>
+
+            <!-- Idea Input -->
+            <div class="idea-box">
+
+                <textarea
+                    id="idea"
+                    placeholder="Describe your project idea here...&#10;&#10;Example: I want to build a plant disease detection website."
+                ></textarea>
+
+                <div class="input-bottom">
+
+                    <span id="characterCount">
+                        0 / 1000
+                    </span>
+
+                    <button id="analyzeBtn">
+                        Analyze My Idea →
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- How It Works -->
+    <section class="how-it-works" id="how-it-works">
+
+        <div class="section-heading">
+
+            <div class="small-title">
+                HOW IT WORKS
+            </div>
+
+            <h2>
+                From idea to implementation
+            </h2>
+
+            <p>
+                BuildWise AI helps you understand what to build,
+                how to build it, and which technologies to use.
+            </p>
+
+        </div>
+
+
+        <div class="steps">
+
+            <div class="step-card">
+
+                <div class="step-number">
+                    01
+                </div>
+
+                <h3>
+                    Enter Your Idea
+                </h3>
+
+                <p>
+                    Describe your project idea in simple words.
+                </p>
+
+            </div>
+
+
+            <div class="step-card">
+
+                <div class="step-number">
+                    02
+                </div>
+
+                <h3>
+                    AI Analyzes
+                </h3>
+
+                <p>
+                    BuildWise AI understands your project
+                    requirements and identifies the important components.
+                </p>
+
+            </div>
+
+
+            <div class="step-card">
+
+                <div class="step-number">
+                    03
+                </div>
+
+                <h3>
+                    Get Your Blueprint
+                </h3>
+
+                <p>
+                    Receive a structured project plan,
+                    technology stack, modules and development roadmap.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Features -->
+    <section class="features" id="about">
+
+        <div class="section-heading">
+
+            <div class="small-title">
+                WHAT YOU GET
+            </div>
+
+            <h2>
+                Everything you need to start building
+            </h2>
+
+        </div>
+
+
+        <div class="feature-grid">
+
+            <div class="feature-card">
+                <div class="icon">🧩</div>
+                <h3>Project Features</h3>
+                <p>
+                    Identify the major features and functionality
+                    required for your project.
+                </p>
+            </div>
+
+
+            <div class="feature-card">
+                <div class="icon">⚙️</div>
+                <h3>Technology Stack</h3>
+                <p>
+                    Get suitable frontend, backend, database
+                    and AI/ML technologies.
+                </p>
+            </div>
+
+
+            <div class="feature-card">
+                <div class="icon">🏗️</div>
+                <h3>Architecture</h3>
+                <p>
+                    Understand how different components
+                    of your project connect together.
+                </p>
+            </div>
+
+
+            <div class="feature-card">
+                <div class="icon">🤖</div>
+                <h3>AI / ML Ideas</h3>
+                <p>
+                    Discover where artificial intelligence
+                    or machine learning can improve your project.
+                </p>
+            </div>
+
+
+            <div class="feature-card">
+                <div class="icon">🗺️</div>
+                <h3>Development Roadmap</h3>
+                <p>
+                    Follow a step-by-step roadmap from
+                    development to deployment.
+                </p>
+            </div>
+
+
+            <div class="feature-card">
+                <div class="icon">🚀</div>
+                <h3>Future Enhancements</h3>
+                <p>
+                    Find ideas to extend your project
+                    with advanced features.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Result Section -->
+    <section class="result-section" id="result">
+
+        <div class="section-heading">
+
+            <div class="small-title">
+                YOUR BLUEPRINT
+            </div>
+
+            <h2>
+                Project Analysis
+            </h2>
+
+        </div>
+
+        <div id="output">
+
+            <p>
+                Your project blueprint will appear here
+                after you analyze an idea.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <h3>
+            BuildWise AI
+        </h3>
+
+        <p>
+            Turn Your Idea Into a Build Plan.
+        </p>
+
+        <p class="copyright">
+            © 2026 BuildWise AI
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
