@@ -1,25 +1,32 @@
 const express = require("express");
+require("dotenv").config();
+const path = require("path");
 
 const app = express();
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 
+// Middleware
 app.use(express.json());
+app.use(express.static(path.join(__dirname, "../frontend")));
 
-app.get("/", (req, res) => {
-  res.send("BuildWise AI Backend is Running!");
-});
-
+// Analyze project idea
 app.post("/analyze", async (req, res) => {
-  const idea = req.body.idea;
+    const idea = req.body.idea;
 
-  if (!idea) {
-    return res.status(400).json({
-      error: "Project idea is required"
-    });
-  }
+    if (!idea) {
+        return res.status(400).json({
+            error: "Project idea is required"
+        });
+    }
 
-  try {
-    const prompt = `
+    if (!process.env.GEMINI_API_KEY) {
+        return res.status(500).json({
+            error: "Gemini API key is not configured"
+        });
+    }
+
+    try {
+        const prompt = `
 You are BuildWise AI, an AI assistant for college students.
 
 Analyze the following project idea and create a practical project blueprint.
@@ -40,35 +47,66 @@ Provide:
 Keep the explanation clear and suitable for a college student.
 `;
 
-    const response = await fetch("http://localhost:11434/api/generate", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        model: "llama3.2:3b",
-        prompt: prompt,
-        stream: false
-      })
-    });
+        const response = await fetch(
+            `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent?key=${process.env.GEMINI_API_KEY}`,
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    contents: [
+                        {
+                            parts: [
+                                {
+                                    text: prompt
+                                }
+                            ]
+                        }
+                    ]
+                })
+            }
+        );
 
-    const data = await response.json();
+        const data = await response.json();
 
-    res.json({
-      message: "AI blueprint generated successfully!",
-      idea: idea,
-      blueprint: data.response
-    });
+        if (!response.ok) {
+            console.error("Gemini API Error:", data);
 
-  } catch (error) {
-    console.error("Ollama Error:", error);
+            return res.status(500).json({
+                error: data.error?.message || "AI service error"
+            });
+        }
 
-    res.status(500).json({
-      error: "Could not connect to Ollama"
-    });
-  }
+        const blueprint =
+            data.candidates?.[0]?.content?.parts?.[0]?.text;
+
+        if (!blueprint) {
+            return res.status(500).json({
+                error: "No AI response received"
+            });
+        }
+
+        res.json({
+            message: "AI blueprint generated successfully!",
+            idea: idea,
+            blueprint: blueprint
+        });
+
+    } catch (error) {
+        console.error("Server Error:", error);
+
+        res.status(500).json({
+            error: "Could not generate blueprint"
+        });
+    }
 });
 
-app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+// Serve homepage
+app.get("/", (req, res) => {
+    res.sendFile(path.join(__dirname, "../frontend/index.html"));
+});
+
+app.listen(PORT, "0.0.0.0", () => {
+    console.log(`BuildWise AI running on port ${PORT}`);
 });
