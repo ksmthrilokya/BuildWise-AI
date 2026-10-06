@@ -368,261 +368,20 @@ body {
     background: #ffffff;
 }
 
-/* Main blueprint container */
-
-.result-section #output {
+#output {
     max-width: 1000px;
     min-height: 180px;
 
     margin: auto;
-    padding: 10px 0;
 
-    background: transparent;
-    border: none;
-    border-radius: 0;
+    padding: 35px;
 
-    color: #333;
+    border: 1px dashed #cfd2df;
+    border-radius: 18px;
 
-    scroll-margin-top: 90px;
-}
-
-
-/* Blueprint heading */
-
-.result-section .blueprint-header {
-    display: flex;
-    align-items: center;
-    gap: 18px;
-
-    margin-bottom: 30px;
-    padding-bottom: 22px;
-
-    border-bottom: 1px solid #e7e8ef;
-}
-
-.result-section .blueprint-icon {
-    width: 52px;
-    height: 52px;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    flex-shrink: 0;
-
-    border-radius: 14px;
-
-    background: #eeebff;
-    color: #6c4df6;
-
-    font-size: 28px;
-}
-
-.result-section .blueprint-header h2 {
-    margin: 0;
-
-    font-size: 28px;
-    color: #171a2b;
-}
-
-.result-section .blueprint-header p {
-    margin: 5px 0 0;
+    background: #fafaff;
 
     color: #747b8c;
-    font-size: 14px;
-}
-
-
-/* Project idea inside result */
-
-.result-section .idea-box {
-    max-width: none;
-    margin: 0 0 5px;
-
-    padding: 0 0 25px;
-
-    background: transparent;
-
-    border: none;
-    border-bottom: 1px solid #e7e8ef;
-
-    border-radius: 0;
-
-    box-shadow: none;
-}
-
-.result-section .idea-box span {
-    display: block;
-
-    margin-bottom: 8px;
-
-    color: #6c4df6;
-
-    font-size: 12px;
-    font-weight: 800;
-
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-}
-
-.result-section .idea-box p {
-    margin: 0;
-
-    color: #333;
-
-    font-size: 16px;
-    line-height: 1.7;
-}
-
-
-/* Blueprint sections - NO BOXES */
-
-.result-section .blueprint-section {
-    margin: 0;
-
-    padding: 28px 0;
-
-    background: transparent;
-
-    border: none;
-    border-bottom: 1px solid #e7e8ef;
-
-    border-radius: 0;
-
-    box-shadow: none;
-}
-
-.result-section .blueprint-section:last-of-type {
-    border-bottom: none;
-}
-
-.result-section .blueprint-section h3 {
-    position: relative;
-
-    margin: 0 0 12px;
-
-    padding-left: 15px;
-
-    color: #222536;
-
-    font-size: 20px;
-    line-height: 1.4;
-}
-
-.result-section .blueprint-section h3::before {
-    content: "";
-
-    position: absolute;
-
-    left: 0;
-    top: 4px;
-
-    width: 4px;
-    height: 24px;
-
-    border-radius: 10px;
-
-    background: #6c4df6;
-}
-
-.result-section .blueprint-section p,
-.result-section .blueprint-section li {
-    color: #626979;
-
-    font-size: 15px;
-
-    line-height: 1.75;
-}
-
-.result-section .blueprint-section ul,
-.result-section .blueprint-section ol {
-    margin-top: 10px;
-    padding-left: 25px;
-}
-
-.result-section .blueprint-section li {
-    margin: 7px 0;
-}
-
-
-/* New Project button */
-
-.result-section .new-project-btn {
-    display: block;
-
-    margin: 32px auto 5px;
-
-    padding: 13px 24px;
-
-    border: none;
-    border-radius: 10px;
-
-    background: #6c4df6;
-    color: white;
-
-    font-size: 15px;
-    font-weight: 600;
-
-    cursor: pointer;
-
-    transition: 0.3s;
-}
-
-.result-section .new-project-btn:hover {
-    background: #5538dc;
-    transform: translateY(-2px);
-}
-
-
-/* ================================
-   LOADING
-   ================================ */
-
-.loading {
-    text-align: center;
-    padding: 55px 20px;
-}
-
-.loading h3 {
-    margin: 18px 0 6px;
-}
-
-.loading p {
-    color: #777;
-}
-
-.loader {
-    width: 42px;
-    height: 42px;
-
-    margin: auto;
-
-    border: 4px solid #e5e5e5;
-    border-top: 4px solid #6c4df6;
-
-    border-radius: 50%;
-
-    animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-
-/* ================================
-   ERROR
-   ================================ */
-
-.error-box {
-    padding: 25px;
-
-    border-radius: 14px;
-
-    background: #fff2f2;
-    border: 1px solid #ffd0d0;
 }
 
 
@@ -681,14 +440,6 @@ footer .copyright {
     .result-section {
         padding: 70px 6%;
     }
-
-    .result-section #output {
-        width: 100%;
-    }
-
-    .result-section .blueprint-header {
-        align-items: flex-start;
-    }
 }
 
 
@@ -715,101 +466,286 @@ footer .copyright {
     #analyzeBtn {
         width: 100%;
     }
+}
+/* AI Blueprint Result */
 
+#output {
+    scroll-margin-top: 90px;
+}
 
-    /* Blueprint mobile */
+.blueprint-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
 
-    .result-section {
-        padding: 60px 15px;
+.blueprint-header span {
+    font-size: 38px;
+}
+
+.blueprint-header h2 {
+    margin: 0;
+    font-size: 28px;
+}
+
+.blueprint-header p {
+    margin: 5px 0 0;
+    color: #666;
+}
+
+.idea-box {
+    background: #f5f3ff;
+    border-left: 4px solid #6c4df6;
+    padding: 18px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+}
+
+.idea-box p {
+    margin: 8px 0 0;
+}
+
+.blueprint-content {
+    line-height: 1.8;
+    color: #333;
+}
+
+.blueprint-content h3 {
+    color: #5b3fd3;
+    margin-top: 25px;
+    margin-bottom: 8px;
+}
+
+.blueprint-content li {
+    margin: 8px 0;
+}
+
+.loading {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.loading p {
+    font-size: 18px;
+    margin: 15px 0 5px;
+}
+
+.loading small {
+    color: #777;
+}
+
+.loader {
+    width: 38px;
+    height: 38px;
+    margin: auto;
+    border: 4px solid #ddd;
+    border-top: 4px solid #6c4df6;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
     }
+}
 
-    .result-section #output {
+.error-box {
+    padding: 25px;
+    background: #fff0f0;
+    border-radius: 10px;
+}
+/* ================================
+   BUILDWISE AI - BLUEPRINT UI
+================================ */
+
+#output {
+    scroll-margin-top: 90px;
+}
+
+.blueprint-header {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 25px;
+}
+
+.blueprint-icon {
+    font-size: 42px;
+}
+
+.blueprint-header h2 {
+    margin: 0;
+    font-size: 28px;
+}
+
+.blueprint-header p {
+    margin: 6px 0 0;
+    color: #777;
+}
+
+.idea-box {
+    padding: 20px;
+    margin-bottom: 25px;
+    border-radius: 14px;
+    background: #f5f2ff;
+    border-left: 5px solid #6c4df6;
+}
+
+.idea-box span {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #6c4df6;
+}
+
+.idea-box p {
+    margin: 10px 0 0;
+    font-size: 16px;
+    color: #333;
+}
+
+.blueprint-section {
+    padding: 20px;
+    margin: 18px 0;
+    border-radius: 14px;
+    background: #ffffff;
+    border: 1px solid #e7e4f5;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.05);
+}
+
+.blueprint-section h3 {
+    margin-top: 0;
+    color: #5b3fd3;
+    font-size: 20px;
+}
+
+.blueprint-section li {
+    margin: 8px 0;
+    line-height: 1.6;
+}
+
+.new-project-btn {
+    display: block;
+    margin: 30px auto 5px;
+    padding: 13px 24px;
+    border: none;
+    border-radius: 10px;
+    background: #6c4df6;
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.new-project-btn:hover {
+    transform: translateY(-2px);
+}
+
+/* Loading */
+
+.loading {
+    text-align: center;
+    padding: 55px 20px;
+}
+
+.loading h3 {
+    margin: 18px 0 6px;
+}
+
+.loading p {
+    color: #777;
+}
+
+.loader {
+    width: 42px;
+    height: 42px;
+    margin: auto;
+    border: 4px solid #e5e5e5;
+    border-top: 4px solid #6c4df6;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.error-box {
+    padding: 25px;
+    border-radius: 14px;
+    background: #fff2f2;
+    border: 1px solid #ffd0d0;
+}
+
+/* Mobile Blueprint Fix */
+@media (max-width: 600px) {
+
+    #output {
         width: 100%;
         max-width: 100%;
-        padding: 5px 0;
-
+        padding: 20px 14px;
         overflow: hidden;
     }
 
-    .result-section .blueprint-header {
+    .blueprint-header {
+        align-items: flex-start;
         gap: 12px;
-
-        margin-bottom: 24px;
-        padding-bottom: 18px;
+        flex-wrap: wrap;
     }
 
-    .result-section .blueprint-icon {
-        width: 44px;
-        height: 44px;
-
+    .blueprint-header h2 {
         font-size: 22px;
-
-        border-radius: 12px;
-    }
-
-    .result-section .blueprint-header h2 {
-        font-size: 21px;
         line-height: 1.3;
-
         overflow-wrap: anywhere;
     }
 
-    .result-section .blueprint-header p {
-        font-size: 13px;
-
+    .blueprint-header p {
+        font-size: 14px;
         overflow-wrap: anywhere;
     }
 
-    .result-section .idea-box {
-        padding-bottom: 20px;
+    .blueprint-icon {
+        font-size: 32px;
     }
 
-    .result-section .idea-box p {
+    .idea-box,
+    .blueprint-section {
+        width: 100%;
+        max-width: 100%;
+        padding: 16px;
+        box-sizing: border-box;
+        overflow: hidden;
+    }
+
+    .idea-box p,
+    .blueprint-section p,
+    .blueprint-section li {
+        max-width: 100%;
         font-size: 15px;
-        line-height: 1.65;
-
+        line-height: 1.6;
         overflow-wrap: anywhere;
         word-break: break-word;
     }
 
-    .result-section .blueprint-section {
-        padding: 22px 0;
-
-        overflow: hidden;
-    }
-
-    .result-section .blueprint-section h3 {
+    .blueprint-section h3 {
         font-size: 18px;
         line-height: 1.4;
-
-        padding-left: 13px;
-
         overflow-wrap: anywhere;
     }
 
-    .result-section .blueprint-section h3::before {
-        width: 3px;
-        height: 22px;
-    }
-
-    .result-section .blueprint-section p,
-    .result-section .blueprint-section li {
-        max-width: 100%;
-
-        font-size: 14px;
-        line-height: 1.7;
-
-        overflow-wrap: anywhere;
-        word-break: break-word;
-    }
-
-    .result-section .blueprint-section ul,
-    .result-section .blueprint-section ol {
+    .blueprint-section ul,
+    .blueprint-section ol {
         padding-left: 20px;
+        max-width: 100%;
     }
 
-    .result-section .new-project-btn {
+    .new-project-btn {
         width: 100%;
-        margin-top: 28px;
+        max-width: 100%;
+        box-sizing: border-box;
     }
 }
