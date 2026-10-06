@@ -5,14 +5,12 @@ const path = require("path");
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// Middleware
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "../frontend")));
 
 
 // ==========================================
 // FALLBACK BLUEPRINT
-// Used only when Gemini quota is unavailable
 // ==========================================
 
 function createFallbackBlueprint(idea) {
@@ -21,18 +19,18 @@ Project Title:
 ${idea}
 
 Problem Statement:
-Students often have project ideas but may not know how to convert those ideas into a practical and structured project. This project aims to provide a clear development direction.
+Students often have project ideas but may not know how to convert those ideas into a practical and structured project.
 
 Project Objective:
-The main objective is to develop a practical solution for the given project idea and provide students with a clear understanding of its implementation.
+Develop a practical solution for the given project idea with a clear implementation plan.
 
 Key Features:
 • User-friendly interface
-• Project idea processing
-• Structured project planning
-• Technology suggestions
-• Step-by-step development guidance
-• Modular project design
+• Core project functionality
+• Data processing
+• User management
+• Reports and results
+• Responsive design
 
 Technologies Required:
 • HTML
@@ -40,30 +38,49 @@ Technologies Required:
 • JavaScript
 • Node.js
 • Express.js
-• AI integration
 • Database if required
+• AI/API integration if required
 
 Development Steps:
-1. Define the project requirements.
-2. Design the user interface.
+1. Define project requirements.
+2. Design the UI.
 3. Set up the backend.
-4. Implement the main project modules.
-5. Integrate required APIs or AI services.
-6. Test all major features.
-7. Fix errors and improve performance.
-8. Deploy the final project.
+4. Develop the main modules.
+5. Connect APIs or AI services.
+6. Integrate frontend and backend.
+7. Test the application.
+8. Deploy the project.
 
 Suggested Modules:
 • User Interface Module
-• Input Processing Module
-• Core Project Module
-• AI / Logic Module
+• Authentication Module
+• Core Functionality Module
+• Data Processing Module
 • Database Module
 • Testing Module
 • Deployment Module
 
+UI/UX Design:
+• Landing Page – Introduce the project and its main purpose.
+• Login/Register – Provide a simple and clean authentication interface if required.
+• Dashboard – Show important project information and quick actions.
+• Main Feature Screen – Keep the primary functionality easy to access.
+• Navigation – Use a simple navbar/sidebar with clearly named sections.
+• Forms – Use clean input fields with validation and helpful labels.
+• Results Screen – Display important results in a readable and organized layout.
+• Responsive Design – Make the interface work smoothly on mobile, tablet and desktop.
+• Visual Style – Use consistent typography, spacing, icons and a professional color palette.
+
+Suggested UI Pages:
+1. Home / Landing Page
+2. Login / Register
+3. Dashboard
+4. Main Project Feature
+5. Results / Reports
+6. Profile / Settings
+
 Expected Outcome:
-A functional and practical college project based on the provided idea, with a clear structure that can be further developed and deployed.
+A functional, responsive and practical college project with a clear user experience and modular architecture.
 
 Note:
 This blueprint is currently generated using BuildWise AI's fallback mode because the AI service has temporarily reached its usage limit.
@@ -96,12 +113,12 @@ app.post("/analyze", async (req, res) => {
         const prompt = `
 You are BuildWise AI, an AI assistant for college students.
 
-Analyze the following project idea and create a practical project blueprint.
+Analyze the following project idea and create a practical, detailed project blueprint.
 
 Project Idea:
 ${idea}
 
-Provide:
+Provide the following sections:
 
 1. Project Title
 2. Problem Statement
@@ -110,8 +127,23 @@ Provide:
 5. Technologies Required
 6. Development Steps
 7. Suggested Modules
-8. Expected Outcome
+8. UI/UX Design
+9. Suggested UI Pages
+10. Expected Outcome
 
+For the UI/UX Design section, suggest:
+- Landing page design
+- Navigation structure
+- Dashboard design
+- Main feature screen
+- Forms and input design
+- Results screen
+- Responsive mobile design
+- Visual style and user experience
+
+For Suggested UI Pages, list the important pages required for this specific project.
+
+Make the recommendations specific to the given project idea.
 Keep the explanation clear, practical and suitable for a college student.
 `;
 
@@ -144,12 +176,14 @@ Keep the explanation clear, practical and suitable for a college student.
 
 
         // ==========================================
-        // GEMINI QUOTA EXCEEDED
+        // QUOTA EXCEEDED → FALLBACK
         // ==========================================
 
         if (response.status === 429) {
 
-            console.log("Gemini quota exceeded. Using fallback blueprint.");
+            console.log(
+                "Gemini quota exceeded. Using fallback blueprint."
+            );
 
             return res.json({
                 message: "Fallback blueprint generated",
@@ -189,18 +223,10 @@ Keep the explanation clear, practical and suitable for a college student.
         }
 
 
-        // ==========================================
-        // SUCCESS
-        // ==========================================
-
         res.json({
-
             message: "AI blueprint generated successfully!",
-
             idea: idea,
-
             blueprint: blueprint
-
         });
 
     }
